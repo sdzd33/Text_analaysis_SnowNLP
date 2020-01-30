@@ -6,7 +6,7 @@
 
 具体代码为：
 
-```
+```py
 coding = UTF-8
 -*- coding: cp936 -*-
 from snownlp import SnowNLP
@@ -49,7 +49,7 @@ with open('acc_txt_5400_test1.csv', 'w', newline='') as f:
 为了增加情感分析的准确性，我们加入自己搜集的程度、肯定、否定词汇表并进行训练
 
 具体代码如下：
-```
+```py
 # coding = UTF-8
 # -*- coding: cp936 -*-
 from snownlp import SnowNLP
@@ -68,7 +68,7 @@ sentiment.save('sentiment.marshal2')
 ## 3. 利用SnowNLP包进行文本分析
 
 首先我们要用正则表达式对会议次数进行抓取：
-```
+```py
 def conti(cont):
     a = 0
     p1 = re.compile(r'审计委员会.召开(.*)次会议')
@@ -99,7 +99,7 @@ def conti(cont):
     return a
 ```
 其次，我们对抓取的会议次数进行汉语阿拉伯语转换：
-```
+```py
 dictnum ={'零':0,'一':1,'二':2,'三':3,'四':4,'五':5,'六':6,'七':7,'八':8,'九':9,'十':10,'百':12,'千':13,'万':14,'亿':18,'两':2,
            '壹':1,'贰':2,'叁':3,'肆':4,'伍':5,'陆':6,'柒':7,'捌':8,'玖':9,'拾':10,'佰':12}
 def getResultForDigit(a):
@@ -128,7 +128,7 @@ def getResultForDigit(a):
 ```
 
 阿拉伯语汉语的转换方式为：
-```
+```py
 n = input("请输入阿拉伯数字：")
 cn = "123456789"
 cnum = ""
@@ -140,13 +140,13 @@ print("转换成汉字数字是：{}".format(cnum))
 ```
 
 最后，我们对所有的文本进行文本分析：
-```
+```py
 def senti(content):
    return SnowNLP(content).sentiments
 ```
 
 调用函数的代码如下：
-```
+```py
 os.chdir(os.path.join(os.getcwd(), 'acc_txt_5400_test1'))
 file_path = os.listdir(os.getcwd())
 data = pd.read_csv("acc_txt_5400_test1.csv", encoding='utf-8')
