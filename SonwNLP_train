@@ -1,0 +1,14 @@
+# coding = UTF-8
+# -*- coding: cp936 -*-
+from snownlp import SnowNLP
+import pandas as pd
+import os
+from snownlp import sentiment
+import re
+import jieba
+
+os.chdir(os.path.join(os.getcwd(), 'traintext'))
+file_path = os.listdir(os.getcwd())
+
+sentiment.train('negative.txt', 'positive.txt')
+sentiment.save('sentiment.marshal2')
