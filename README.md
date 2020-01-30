@@ -1,0 +1,2 @@
+# sdzd33-Text_analaysis_SnowNLP
+利用SnowSNLP进行文本分析实验
